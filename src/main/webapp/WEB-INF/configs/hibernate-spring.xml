@@ -20,8 +20,8 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="annotatedClasses">
             <list>
-                <value>com.fastern.test.entity.Token</value>
-                <value>com.fastern.test.entity.Profile</value>
+                <value>com.fasten.test.entity.Token</value>
+                <value>com.fasten.test.entity.Profile</value>
             </list>
         </property>
         <property name="hibernateProperties">

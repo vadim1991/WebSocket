@@ -27,6 +27,8 @@
             });
         }
 
+
+
         function disconnect() {
             stompClient.disconnect();
             setConnected(false);
