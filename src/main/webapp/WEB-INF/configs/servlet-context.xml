@@ -14,7 +14,7 @@
 
     <!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
     <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <beans:property name="prefix" value="/WEB-INF/views/"/>
+        <beans:property name="prefix" value="/WEB-INF/"/>
         <beans:property name="suffix" value=".jsp"/>
     </beans:bean>
 
@@ -32,7 +32,7 @@
                 class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
     </beans:bean>
 
-    <context:component-scan base-package="com.fasten.test"/>
+    <context:component-scan base-package="com.social.net"/>
 
     <beans:import resource="websocket-config.xml"></beans:import>
 
