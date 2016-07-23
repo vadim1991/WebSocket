@@ -2072,15 +2072,15 @@ window.onload = loadScript;
 
 function initScripts() {
     var $scripts = [
-        "js/jquery.ui.map.js",
-        "js/jquery.ui.map.extensions.js",
-        "js/jquery.ui.map.services.js",
-        "js/jquery.ui.map.microdata.js",
-        "js/jquery.ui.map.microformat.js",
-        "js/jquery.ui.map.overlays.js",
-        "js/jquery.ui.map.rdfa.js",
-        "js/infobox_packed.js",
-        "js/markerclusterer.min.js"
+        "resources/js/jquery.ui.map.js",
+        "resources/js/jquery.ui.map.extensions.js",
+        "resources/js/jquery.ui.map.services.js",
+        "resources/js/jquery.ui.map.microdata.js",
+        "resources/js/jquery.ui.map.microformat.js",
+        "resources/js/jquery.ui.map.overlays.js",
+        "resources/js/jquery.ui.map.rdfa.js",
+        "resources/js/infobox_packed.js",
+        "resources/js/markerclusterer.min.js"
     ];
 
     $.each($scripts, function (k, v) {

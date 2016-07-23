@@ -5,16 +5,16 @@ import com.google.common.base.Objects;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
-/**
- * Created by Vadym_Vlasenko on 27.06.2016.
- */
+import static javax.persistence.GenerationType.IDENTITY;
+
 @Entity
-@Table(name = "entities")
+@Table(name = "profile")
 public class Profile implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = IDENTITY)
     private long id;
     @Column(unique = true)
     private String email;

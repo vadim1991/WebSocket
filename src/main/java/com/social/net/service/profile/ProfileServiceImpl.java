@@ -8,9 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- * Created by Vadym_Vlasenko on 27.06.2016.
- */
 @Service("profileService")
 @Transactional
 @EnableTransactionManagement
