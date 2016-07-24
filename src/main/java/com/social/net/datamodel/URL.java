@@ -5,6 +5,8 @@ package com.social.net.datamodel;
  */
 public class URL {
     public static final String PROFILES_URL = "/profiles";
-    public static final String AUTHENTICATION_CHANNEL = "/authentication/";
+    public static final String MESSAGE_CHANNEL = "/profile/topics/push/message";
     public static final String TOPIC_AUTHENTICATION = "/topic/authentication/";
+    public static final String PROFILE_MESSAGES_NEW_TOPIC = "/profile/%s/messages/new";
+    public static final String PROFILE_GET_TOPICS_URL = "/profile/%s/topics";
 }

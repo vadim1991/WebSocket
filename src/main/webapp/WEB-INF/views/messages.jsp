@@ -89,7 +89,7 @@
                                 <div class="panel panel-default">
                                     <ul class="list-group">
                                         <li class="list-group-item active">
-                                            <a href="#">
+                                            <a href="#" class="dialog" data-id="1">
                                                 <div class="media">
                                                     <div class="media-left">
                                                         <img src="resources/images/woman-5.jpg" width="50" alt="" class="media-object" />
@@ -103,7 +103,7 @@
                                             </a>
                                         </li>
                                         <li class="list-group-item">
-                                            <a href="#">
+                                            <a href="#" class="dialog" data-id="2">
                                                 <div class="media">
                                                     <div class="media-left">
                                                         <img src="resources/images/guy-3.jpg" height="50" alt="" class="media-object" />
@@ -117,7 +117,7 @@
                                             </a>
                                         </li>
                                         <li class="list-group-item">
-                                            <a href="#">
+                                            <a href="#" class="dialog" data-id="3">
                                                 <div class="media">
                                                     <div class="media-left">
                                                         <img src="resources/images/woman-4.jpg" width="50" alt="" class="media-object" />
@@ -131,7 +131,7 @@
                                             </a>
                                         </li>
                                         <li class="list-group-item">
-                                            <a href="#">
+                                            <a href="#" class="dialog" data-id="4">
                                                 <div class="media">
                                                     <div class="media-left">
                                                         <img src="resources/images/woman-3.jpg" height="50" alt="" class="media-object" />
@@ -145,7 +145,7 @@
                                             </a>
                                         </li>
                                         <li class="list-group-item">
-                                            <a href="#">
+                                            <a href="#" class="dialog" data-id="5">
                                                 <div class="media">
                                                     <div class="media-left">
                                                         <img src="resources/images/guy-9.jpg" height="50" alt="" class="media-object" />
@@ -159,7 +159,7 @@
                                             </a>
                                         </li>
                                         <li class="list-group-item">
-                                            <a href="#">
+                                            <a href="#" class="dialog" data-id="6">
                                                 <div class="media">
                                                     <div class="media-left">
                                                         <img src="resources/images/woman-9.jpg" height="50" alt="" class="media-object" />
@@ -173,7 +173,7 @@
                                             </a>
                                         </li>
                                         <li class="list-group-item">
-                                            <a href="#">
+                                            <a href="#" class="dialog">
                                                 <div class="media">
                                                     <div class="media-left">
                                                         <img src="resources/images/guy-6.jpg" height="50" alt="" class="media-object" />
@@ -187,7 +187,7 @@
                                             </a>
                                         </li>
                                         <li class="list-group-item">
-                                            <a href="#">
+                                            <a href="#" class="dialog">
                                                 <div class="media">
                                                     <div class="media-left">
                                                         <img src="resources/images/guy-2.jpg" height="50" alt="" class="media-object" />
@@ -204,11 +204,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="media-body">
+                        <div class="media-body" id="message-block">
                             <div class="panel panel-default share">
                                 <div class="input-group">
                                     <div class="input-group-btn">
-                                        <a class="btn btn-primary" href="#">
+                                        <a class="btn btn-primary" href="#" id="send-button">
                                             <i class="fa fa-envelope"></i> Send
                                         </a>
                                     </div>
@@ -313,5 +313,25 @@
 <jsp:include page="fragments/footer.jsp"></jsp:include>
 
 </body>
+
+<div class="media hidden" id="media">
+    <div class="media-left">
+        <img src="../../resources/images/unknown.png" width="60" alt="" class="media-object" />
+    </div>
+    <div class="media-body message">
+        <div class="panel panel-default">
+            <div class="panel-heading panel-heading-white">
+                <div class="pull-right">
+                    <small class="text-muted"></small>
+                </div>
+                <a href="#" id="name"></a>
+            </div>
+            <div class="panel-body"></div>
+        </div>
+    </div>
+    <div class="media-right">
+        <img src="../../resources/images/unknown.png" width="60" alt="" class="media-object" />
+    </div>
+</div>
 
 </html>

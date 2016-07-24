@@ -33,5 +33,10 @@
         }
     };
 </script>
-<script src="../resources/js/vendor/all.js"></script>
-<script src="../resources/js/app/app.js"></script>
+<script src="../../../resources/js/vendor/all.js"></script>
+<script src="../../../resources/js/app/app.js"></script>
+<script src="../../../resources/js/jquery-2.2.0.min.js"></script>
+<script src="../../../resources/js/sockjs.js"></script>
+<script src="../../../resources/js/stomp.js"></script>
+<script src="../../../resources/js/prototype/message.js"></script>
+<script src="../../../resources/js/custom/message-client.js"></script>
