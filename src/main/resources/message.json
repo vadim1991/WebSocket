@@ -1,0 +1,7 @@
+{
+  "content": "Test content",
+  "ownerId": {
+    "id": "12345"
+  },
+  "isRead": false
+}

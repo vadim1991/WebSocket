@@ -1,17 +1,9 @@
 package com.social.net.service.profile;
 
 import com.social.net.entity.Profile;
+import com.social.net.service.generic.GenericService;
 
-/**
- * Created by Vadym_Vlasenko on 27.06.2016.
- */
-public interface ProfileService {
-
-    Profile saveProfile(Profile profile);
-
-    Profile getProfileById(long profileID);
-
-    void removeProfile(Profile profile);
+public interface ProfileService extends GenericService<Profile> {
 
     Profile getProfileByCredentials(String email, String password);
 

@@ -1,6 +1,6 @@
 package com.social.net.controller;
 
-import com.social.net.entity.FriendShip;
+import com.social.net.entity.Friendship;
 import com.social.net.entity.Message;
 import com.social.net.service.friendship.FriendshipService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +19,23 @@ public class FriendshipController {
     @Autowired
     private SimpMessagingTemplate messagingTemplate;
 
+    @RequestMapping(value = "/friendships", method = RequestMethod.POST)
+    public Friendship saveFriendShip(@RequestBody Friendship friendship) {
+        System.out.println(friendship);
+        return friendshipService.save(friendship);
+    }
+
     @RequestMapping(value = "/friendship/{id}", method = RequestMethod.GET)
-    public @ResponseBody FriendShip getFriendship(@PathVariable long id) {
-        return friendshipService.getFriendship(id);
+    public
+    @ResponseBody
+    Friendship getFriendship(@PathVariable String id) {
+        return friendshipService.getById(id);
     }
 
     @RequestMapping(value = "/friendship/{id}/message", method = RequestMethod.POST)
-    public @ResponseBody Message addMessage(@PathVariable long id, @RequestBody Message message) {
+    public
+    @ResponseBody
+    Message addMessage(@PathVariable String id, @RequestBody Message message) {
         friendshipService.addMessageToTopic(message, id);
         return message;
     }

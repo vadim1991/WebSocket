@@ -1,17 +1,13 @@
 package com.social.net.repository.friendship;
 
-import com.social.net.entity.FriendShip;
+import com.social.net.repository.generic.GenericRepository;
 
-public interface FriendshipRepository {
+public interface FriendshipRepository<T> extends GenericRepository<T> {
 
-    FriendShip save(FriendShip friendShip);
+    void update(T friendShip);
 
-    void update(FriendShip friendShip);
+    T getByProfileIDs(String ... ids);
 
-    FriendShip getFriendship(long id);
-
-    FriendShip getByProfileIDs(long ... ids);
-
-    FriendShip getByProfileIDs(long friendshipId, long ... ids);
+    T getByProfileIDs(String friendshipId, String ... ids);
 
 }

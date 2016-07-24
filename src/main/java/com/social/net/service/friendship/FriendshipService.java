@@ -1,18 +1,15 @@
 package com.social.net.service.friendship;
 
-import com.social.net.entity.FriendShip;
+import com.social.net.entity.Friendship;
 import com.social.net.entity.Message;
+import com.social.net.service.generic.GenericService;
 
-public interface FriendshipService {
+public interface FriendshipService extends GenericService<Friendship> {
 
-    FriendShip save(FriendShip friendShip);
+    void addMessageToTopic(Message message, String friendshipId);
 
-    void addMessageToTopic(Message message, long friendshipId);
+    Friendship getByProfileIDs(String... ids);
 
-    FriendShip getFriendship(long id);
-
-    FriendShip getByProfileIDs(long... ids);
-
-    FriendShip getByProfileIDs(long friendshipId, long... ids);
+    Friendship getByProfileIDs(String friendshipId, String... ids);
 
 }

@@ -1,8 +1,10 @@
 package com.social.net.service.friendship;
 
-import com.social.net.entity.FriendShip;
+import com.social.net.entity.Friendship;
 import com.social.net.entity.Message;
-import com.social.net.repository.friendship.FriendshipRepository;
+import com.social.net.repository.friendship.FriendshipRepositoryImpl;
+import com.social.net.service.generic.GenericServiceImpl;
+import com.social.net.util.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -12,40 +14,34 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @EnableTransactionManagement
 @Transactional
-public class FriendshipServiceImpl implements FriendshipService {
+public class FriendshipServiceImpl extends GenericServiceImpl<Friendship, FriendshipRepositoryImpl> implements FriendshipService {
 
     @Autowired
     @Qualifier("friendshipRepository")
-    private FriendshipRepository friendshipRepository;
-
     @Override
-    public FriendShip save(FriendShip friendShip) {
-        return friendshipRepository.save(friendShip);
+    public void setRepository(FriendshipRepositoryImpl repository) {
+        super.setRepository(repository);
     }
 
     @Override
-    public void addMessageToTopic(Message message, long friendshipId) {
-        FriendShip friendship = friendshipRepository.getFriendship(friendshipId);
+    public void addMessageToTopic(Message message, String friendshipId) {
+        Friendship friendship = repository.getById(friendshipId);
         if (friendship != null) {
+            message.setId(Util.generateStringKey());
             friendship.getMessages().add(message);
-            friendshipRepository.update(friendship);
+            repository.update(friendship);
         } else {
             throw new IllegalArgumentException("Friendship doesn't exist");
         }
     }
 
     @Override
-    public FriendShip getFriendship(long id) {
-        return friendshipRepository.getFriendship(id);
+    public Friendship getByProfileIDs(String... ids) {
+        return repository.getByProfileIDs(ids);
     }
 
     @Override
-    public FriendShip getByProfileIDs(long... ids) {
-        return friendshipRepository.getByProfileIDs(ids);
-    }
-
-    @Override
-    public FriendShip getByProfileIDs(long friendshipId, long... ids) {
-        return friendshipRepository.getByProfileIDs(friendshipId, ids);
+    public Friendship getByProfileIDs(String friendshipId, String... ids) {
+        return repository.getByProfileIDs(friendshipId, ids);
     }
 }

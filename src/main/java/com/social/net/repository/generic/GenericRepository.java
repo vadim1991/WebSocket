@@ -1,18 +1,11 @@
 package com.social.net.repository.generic;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+public interface GenericRepository<T> {
 
-@Repository
-public class GenericRepository {
+    T save(T entity);
 
-    @Autowired
-    private SessionFactory sessionFactory;
+    void remove(T entity);
 
+    T getById(String id);
 
-    protected Session getCurrentSession() {
-        return sessionFactory.getCurrentSession();
-    }
 }
