@@ -20,6 +20,8 @@ public class Message implements IEntity {
     private String content;
     @ManyToOne
     private Profile owner;
+//    @ManyToOne
+//    private Friendship friendship;
     private Date time;
     private boolean isRead;
 

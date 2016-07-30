@@ -22,7 +22,7 @@ public class ProfileController {
 
     @RequestMapping(value = "/profiles/{id}", method = RequestMethod.GET)
     public @ResponseBody Profile getProfile(@PathVariable String id) {
-        return profileService.getById(id);
+        return profileService.findById(id);
     }
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)

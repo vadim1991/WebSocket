@@ -1,13 +1,16 @@
 package com.social.net.repository.friendship;
 
-import com.social.net.repository.generic.GenericRepository;
+import com.social.net.entity.Friendship;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.CrudRepository;
 
-public interface FriendshipRepository<T> extends GenericRepository<T> {
+import java.util.List;
 
-    void update(T friendShip);
+public interface FriendshipRepository extends CrudRepository<Friendship, String> {
 
-    T getByProfileIDs(String ... ids);
+    List<Friendship> findByProfilesEmail(String email, Pageable pageable);
 
-    T getByProfileIDs(String friendshipId, String ... ids);
+    List<Friendship> findByProfilesEmail(String email, Sort sort);
 
 }

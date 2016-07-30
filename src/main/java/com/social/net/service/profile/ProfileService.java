@@ -1,10 +1,13 @@
 package com.social.net.service.profile;
 
 import com.social.net.entity.Profile;
-import com.social.net.service.generic.GenericService;
 
-public interface ProfileService extends GenericService<Profile> {
+public interface ProfileService {
 
-    Profile getProfileByCredentials(String email, String password);
+    Profile findByEmail(String email);
+
+    Profile save(Profile profile);
+
+    Profile findById(String id);
 
 }

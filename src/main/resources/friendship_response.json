@@ -1,0 +1,332 @@
+[
+  {
+    "id": "542rR2O8FU",
+    "profiles": [
+      {
+        "id": "5DZ63z9JuJ",
+        "email": "Ivan_Ivanov@epam.com",
+        "password": "11111",
+        "photo": "resources/images/guy-2.jpg",
+        "firstName": "Ivan",
+        "lastName": "Ivanov",
+        "online": false
+      },
+      {
+        "id": "NftqRuhBbj",
+        "email": "Vadym_Vlasenko@epam.com",
+        "password": "11111",
+        "photo": "resources/images/guy-5.jpg",
+        "firstName": "Vadym",
+        "lastName": "Vlasenko",
+        "online": false
+      }
+    ],
+    "messages": [
+      {
+        "id": "rf0yqUK4b0",
+        "content": "Test content",
+        "owner": {
+          "id": "NftqRuhBbj",
+          "email": "Vadym_Vlasenko@epam.com",
+          "password": "11111",
+          "photo": "resources/images/guy-5.jpg",
+          "firstName": "Vadym",
+          "lastName": "Vlasenko",
+          "online": false
+        },
+        "time": null,
+        "read": false
+      }
+    ],
+    "updateTime": null,
+    "hasUnreadMessage": false
+  },
+  {
+    "id": "IVnSsM4KaT",
+    "profiles": [
+      {
+        "id": "NftqRuhBbj",
+        "email": "Vadym_Vlasenko@epam.com",
+        "password": "11111",
+        "photo": "resources/images/guy-5.jpg",
+        "firstName": "Vadym",
+        "lastName": "Vlasenko",
+        "online": false
+      },
+      {
+        "id": "g8WCKeguLt",
+        "email": "Petia_Petrov@epam.com",
+        "password": "11111",
+        "photo": "resources/images/guy-3.jpg",
+        "firstName": "Petia",
+        "lastName": "Petrov",
+        "online": false
+      }
+    ],
+    "messages": [
+      {
+        "id": "UWIUVl2VFE",
+        "content": "How are you?",
+        "owner": {
+          "id": "NftqRuhBbj",
+          "email": "Vadym_Vlasenko@epam.com",
+          "password": "11111",
+          "photo": "resources/images/guy-5.jpg",
+          "firstName": "Vadym",
+          "lastName": "Vlasenko",
+          "online": false
+        },
+        "time": null,
+        "read": false
+      },
+      {
+        "id": "AE5UA7FX1B",
+        "content": "Hello",
+        "owner": {
+          "id": "NftqRuhBbj",
+          "email": "Vadym_Vlasenko@epam.com",
+          "password": "11111",
+          "photo": "resources/images/guy-5.jpg",
+          "firstName": "Vadym",
+          "lastName": "Vlasenko",
+          "online": false
+        },
+        "time": null,
+        "read": false
+      },
+      {
+        "id": "1C0G55SD3S",
+        "content": "Test content",
+        "owner": {
+          "id": "NftqRuhBbj",
+          "email": "Vadym_Vlasenko@epam.com",
+          "password": "11111",
+          "photo": "resources/images/guy-5.jpg",
+          "firstName": "Vadym",
+          "lastName": "Vlasenko",
+          "online": false
+        },
+        "time": null,
+        "read": false
+      }
+    ],
+    "updateTime": null,
+    "hasUnreadMessage": false
+  },
+  {
+    "id": "IVnSsM4KaT",
+    "profiles": [
+      {
+        "id": "NftqRuhBbj",
+        "email": "Vadym_Vlasenko@epam.com",
+        "password": "11111",
+        "photo": "resources/images/guy-5.jpg",
+        "firstName": "Vadym",
+        "lastName": "Vlasenko",
+        "online": false
+      },
+      {
+        "id": "g8WCKeguLt",
+        "email": "Petia_Petrov@epam.com",
+        "password": "11111",
+        "photo": "resources/images/guy-3.jpg",
+        "firstName": "Petia",
+        "lastName": "Petrov",
+        "online": false
+      }
+    ],
+    "messages": [
+      {
+        "id": "UWIUVl2VFE",
+        "content": "How are you?",
+        "owner": {
+          "id": "NftqRuhBbj",
+          "email": "Vadym_Vlasenko@epam.com",
+          "password": "11111",
+          "photo": "resources/images/guy-5.jpg",
+          "firstName": "Vadym",
+          "lastName": "Vlasenko",
+          "online": false
+        },
+        "time": null,
+        "read": false
+      },
+      {
+        "id": "AE5UA7FX1B",
+        "content": "Hello",
+        "owner": {
+          "id": "NftqRuhBbj",
+          "email": "Vadym_Vlasenko@epam.com",
+          "password": "11111",
+          "photo": "resources/images/guy-5.jpg",
+          "firstName": "Vadym",
+          "lastName": "Vlasenko",
+          "online": false
+        },
+        "time": null,
+        "read": false
+      },
+      {
+        "id": "1C0G55SD3S",
+        "content": "Test content",
+        "owner": {
+          "id": "NftqRuhBbj",
+          "email": "Vadym_Vlasenko@epam.com",
+          "password": "11111",
+          "photo": "resources/images/guy-5.jpg",
+          "firstName": "Vadym",
+          "lastName": "Vlasenko",
+          "online": false
+        },
+        "time": null,
+        "read": false
+      }
+    ],
+    "updateTime": null,
+    "hasUnreadMessage": false
+  },
+  {
+    "id": "IVnSsM4KaT",
+    "profiles": [
+      {
+        "id": "NftqRuhBbj",
+        "email": "Vadym_Vlasenko@epam.com",
+        "password": "11111",
+        "photo": "resources/images/guy-5.jpg",
+        "firstName": "Vadym",
+        "lastName": "Vlasenko",
+        "online": false
+      },
+      {
+        "id": "g8WCKeguLt",
+        "email": "Petia_Petrov@epam.com",
+        "password": "11111",
+        "photo": "resources/images/guy-3.jpg",
+        "firstName": "Petia",
+        "lastName": "Petrov",
+        "online": false
+      }
+    ],
+    "messages": [
+      {
+        "id": "UWIUVl2VFE",
+        "content": "How are you?",
+        "owner": {
+          "id": "NftqRuhBbj",
+          "email": "Vadym_Vlasenko@epam.com",
+          "password": "11111",
+          "photo": "resources/images/guy-5.jpg",
+          "firstName": "Vadym",
+          "lastName": "Vlasenko",
+          "online": false
+        },
+        "time": null,
+        "read": false
+      },
+      {
+        "id": "AE5UA7FX1B",
+        "content": "Hello",
+        "owner": {
+          "id": "NftqRuhBbj",
+          "email": "Vadym_Vlasenko@epam.com",
+          "password": "11111",
+          "photo": "resources/images/guy-5.jpg",
+          "firstName": "Vadym",
+          "lastName": "Vlasenko",
+          "online": false
+        },
+        "time": null,
+        "read": false
+      },
+      {
+        "id": "1C0G55SD3S",
+        "content": "Test content",
+        "owner": {
+          "id": "NftqRuhBbj",
+          "email": "Vadym_Vlasenko@epam.com",
+          "password": "11111",
+          "photo": "resources/images/guy-5.jpg",
+          "firstName": "Vadym",
+          "lastName": "Vlasenko",
+          "online": false
+        },
+        "time": null,
+        "read": false
+      }
+    ],
+    "updateTime": null,
+    "hasUnreadMessage": false
+  },
+  {
+    "id": "IVnSsM4KaT",
+    "profiles": [
+      {
+        "id": "NftqRuhBbj",
+        "email": "Vadym_Vlasenko@epam.com",
+        "password": "11111",
+        "photo": "resources/images/guy-5.jpg",
+        "firstName": "Vadym",
+        "lastName": "Vlasenko",
+        "online": false
+      },
+      {
+        "id": "g8WCKeguLt",
+        "email": "Petia_Petrov@epam.com",
+        "password": "11111",
+        "photo": "resources/images/guy-3.jpg",
+        "firstName": "Petia",
+        "lastName": "Petrov",
+        "online": false
+      }
+    ],
+    "messages": [
+      {
+        "id": "UWIUVl2VFE",
+        "content": "How are you?",
+        "owner": {
+          "id": "NftqRuhBbj",
+          "email": "Vadym_Vlasenko@epam.com",
+          "password": "11111",
+          "photo": "resources/images/guy-5.jpg",
+          "firstName": "Vadym",
+          "lastName": "Vlasenko",
+          "online": false
+        },
+        "time": null,
+        "read": false
+      },
+      {
+        "id": "AE5UA7FX1B",
+        "content": "Hello",
+        "owner": {
+          "id": "NftqRuhBbj",
+          "email": "Vadym_Vlasenko@epam.com",
+          "password": "11111",
+          "photo": "resources/images/guy-5.jpg",
+          "firstName": "Vadym",
+          "lastName": "Vlasenko",
+          "online": false
+        },
+        "time": null,
+        "read": false
+      },
+      {
+        "id": "1C0G55SD3S",
+        "content": "Test content",
+        "owner": {
+          "id": "NftqRuhBbj",
+          "email": "Vadym_Vlasenko@epam.com",
+          "password": "11111",
+          "photo": "resources/images/guy-5.jpg",
+          "firstName": "Vadym",
+          "lastName": "Vlasenko",
+          "online": false
+        },
+        "time": null,
+        "read": false
+      }
+    ],
+    "updateTime": null,
+    "hasUnreadMessage": false
+  }
+]

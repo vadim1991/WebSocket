@@ -15,5 +15,6 @@
     <context:component-scan base-package="com.social.net.repository"/>
 
     <import resource="hibernate-spring.xml"></import>
+    <import resource="application-security.xml"></import>
 
 </beans>

@@ -10,13 +10,10 @@
     <mvc:annotation-driven />
 
     <websocket:message-broker application-destination-prefix="/app">
-        <websocket:stomp-endpoint path="/messages">
+        <websocket:stomp-endpoint path="/ws">
             <websocket:sockjs/>
         </websocket:stomp-endpoint>
-        <websocket:stomp-endpoint path="/topics">
-            <websocket:sockjs/>
-        </websocket:stomp-endpoint>
-        <websocket:simple-broker prefix="/profile"/>
+        <websocket:simple-broker prefix="/queue/,/topic/,/exchange/,/friendships/"/>
     </websocket:message-broker>
 
 </beans>

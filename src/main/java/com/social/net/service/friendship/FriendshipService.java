@@ -2,14 +2,18 @@ package com.social.net.service.friendship;
 
 import com.social.net.entity.Friendship;
 import com.social.net.entity.Message;
+import com.social.net.entity.dto.FriendshipRequest;
 import com.social.net.service.generic.GenericService;
 
-public interface FriendshipService extends GenericService<Friendship> {
+import java.util.List;
 
-    void addMessageToTopic(Message message, String friendshipId);
+public interface FriendshipService {
 
-    Friendship getByProfileIDs(String... ids);
+    Friendship addMessageToFriendship(Message message, String friendshipId);
 
-    Friendship getByProfileIDs(String friendshipId, String... ids);
+    List<Friendship> getFriendshipsSortByDate(FriendshipRequest request);
 
+    Friendship save(Friendship friendship);
+
+    Friendship findById(String id);
 }

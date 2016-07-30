@@ -16,4 +16,5 @@ public class Constants {
     public static final String CUSTOMER_ERROR_TYPE = "CUSTOMER_ERROR";
     public static final String PROFILE_ID = "profileID";
     public static final String STATE = "state";
+    public static final String PROFILE = "profile";
 }

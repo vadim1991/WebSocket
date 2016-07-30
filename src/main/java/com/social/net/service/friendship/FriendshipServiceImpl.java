@@ -2,46 +2,60 @@ package com.social.net.service.friendship;
 
 import com.social.net.entity.Friendship;
 import com.social.net.entity.Message;
-import com.social.net.repository.friendship.FriendshipRepositoryImpl;
-import com.social.net.service.generic.GenericServiceImpl;
+import com.social.net.entity.dto.FriendshipRequest;
+import com.social.net.repository.friendship.FriendshipRepository;
 import com.social.net.util.Util;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
+import java.util.List;
+
 @Service
 @EnableTransactionManagement
 @Transactional
-public class FriendshipServiceImpl extends GenericServiceImpl<Friendship, FriendshipRepositoryImpl> implements FriendshipService {
+public class FriendshipServiceImpl implements FriendshipService {
 
     @Autowired
-    @Qualifier("friendshipRepository")
-    @Override
-    public void setRepository(FriendshipRepositoryImpl repository) {
-        super.setRepository(repository);
-    }
+    private FriendshipRepository friendshipRepository;
 
     @Override
-    public void addMessageToTopic(Message message, String friendshipId) {
-        Friendship friendship = repository.getById(friendshipId);
+    public Friendship addMessageToFriendship(Message message, String friendshipId) {
+        Friendship friendship = friendshipRepository.findOne(friendshipId);
         if (friendship != null) {
             message.setId(Util.generateStringKey());
             friendship.getMessages().add(message);
-            repository.update(friendship);
+            return save(friendship);
         } else {
             throw new IllegalArgumentException("Friendship doesn't exist");
         }
     }
 
     @Override
-    public Friendship getByProfileIDs(String... ids) {
-        return repository.getByProfileIDs(ids);
+    public List<Friendship> getFriendshipsSortByDate(FriendshipRequest request) {
+        Sort sort = new Sort(Sort.Direction.DESC, "updated");
+        int pageNumber = request.getOffset() / request.getCount();
+        Pageable pageable = new PageRequest(pageNumber, request.getCount(), sort);
+        return friendshipRepository.findByProfilesEmail(request.getEmail(), pageable);
     }
 
     @Override
-    public Friendship getByProfileIDs(String friendshipId, String... ids) {
-        return repository.getByProfileIDs(friendshipId, ids);
+    public Friendship save(Friendship friendship) {
+        if (StringUtils.isBlank(friendship.getId())) {
+            friendship.setId(Util.generateStringKey());
+        }
+        friendship.setUpdated(new Date());
+        return friendshipRepository.save(friendship);
+    }
+
+    @Override
+    public Friendship findById(String id) {
+        return friendshipRepository.findOne(id);
     }
 }

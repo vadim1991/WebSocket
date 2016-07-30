@@ -1,7 +1,7 @@
-function MessageObject(friend, messageData, myProfile) {
+function MessageObject(friend, messageData, username) {
     this.friend = friend;
     this.message = messageData;
-    this.profile = myProfile;
+    this.username = username;
 }
 
 MessageObject.prototype.getStub = function () {
@@ -13,7 +13,7 @@ MessageObject.prototype.getStub = function () {
 
 MessageObject.prototype.build = function () {
     var stub = this.getStub();
-    var isMessageFromMe = this.message.ownerId == this.profile.id;
+    var isMessageFromMe = this.message.owner.email == this.username;
     if (isMessageFromMe) {
         stub.find(".media-left").remove();
         stub.find(".media-object").attr("src", "resources/images/guy-5.jpg");
@@ -21,7 +21,7 @@ MessageObject.prototype.build = function () {
     } else {
         stub.find(".media-right").remove();
         stub.find(".media-object").attr("src", this.friend.photo);
-        stub.find("#name").text(this.friend.initials);
+        stub.find("#name").text(this.friend.firstName + " " + this.friend.lastName);
     }
 
     stub.find(".text-muted").text(this.message.time);

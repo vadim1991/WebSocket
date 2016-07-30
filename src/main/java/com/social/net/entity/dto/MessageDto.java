@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 public class MessageDto {
 
     private String content;
-    private long topicId;
+    private String friendshipId;
 
 }

@@ -39,4 +39,8 @@
 <script src="../../../resources/js/sockjs.js"></script>
 <script src="../../../resources/js/stomp.js"></script>
 <script src="../../../resources/js/prototype/message.js"></script>
+<script src="../../../resources/js/prototype/friendship.js"></script>
+<script src="../../../resources/js/prototype/friendship-messages.js"></script>
 <script src="../../../resources/js/custom/message-client.js"></script>
+<script src="../../../resources/js/custom/friendship-api.js"></script>
+<script src="../../../resources/js/lib/notify.js"></script>
