@@ -1,7 +1,8 @@
-function Friendship(friend, friendshipId, lastMessage) {
+function Friendship(friend, friendshipItem, lastMessage, hasUnreadMessage) {
     this.friend = friend;
-    this.friendshipId = friendshipId;
+    this.friendshipItem = friendshipItem;
     this.lastMessage = lastMessage;
+    this.hasUnreadMessage = hasUnreadMessage;
 }
 
 Friendship.prototype.getStub = function () {
@@ -13,7 +14,10 @@ Friendship.prototype.getStub = function () {
 
 Friendship.prototype.build = function () {
     var stub = this.getStub();
-    stub.find(".dialog").attr("data-id", this.friendshipId);
+    if (this.hasUnreadMessage) {
+        stub.addClass("unread-message");
+    }
+    stub.find(".dialog").attr("data-id", this.friendshipItem.id);
     stub.find(".media-object").attr("src", this.friend.photo);
     stub.find(".user").text(this.friend.firstName + " " + this.friend.lastName);
     if (this.lastMessage) {

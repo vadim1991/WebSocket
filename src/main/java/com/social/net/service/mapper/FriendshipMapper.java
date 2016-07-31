@@ -1,9 +1,11 @@
 package com.social.net.service.mapper;
 
 import com.social.net.entity.Friendship;
+import com.social.net.entity.Message;
 import com.social.net.entity.model.FriendshipModel;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -14,9 +16,16 @@ public class FriendshipMapper {
     public static FriendshipModel mapEntityToModel(Friendship friendship) {
         FriendshipModel friendshipModel = new FriendshipModel();
         friendshipModel.setId(friendship.getId());
-        friendshipModel.setMessages(MessageMapper.mapToModelSortedSet(friendship.getMessages()));
         friendshipModel.setProfiles(ProfileMapper.mapToModelSortedSet(friendship.getProfiles()));
-        friendshipModel.setHasUnreadMessage(friendship.isHasUnreadMessage());
+        friendshipModel.setUpdated(friendship.getUpdated());
+        return friendshipModel;
+    }
+
+    public static FriendshipModel mapEntityToModel(Friendship friendship, List<Message> messages) {
+        FriendshipModel friendshipModel = new FriendshipModel();
+        friendshipModel.setId(friendship.getId());
+        friendshipModel.setMessages(MessageMapper.mapToModelSortedSet(messages));
+        friendshipModel.setProfiles(ProfileMapper.mapToModelSortedSet(friendship.getProfiles()));
         friendshipModel.setUpdated(friendship.getUpdated());
         return friendshipModel;
     }

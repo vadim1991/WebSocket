@@ -1,6 +1,5 @@
 package com.social.net.entity;
 
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -17,8 +16,5 @@ public class Friendship extends AbstractTimestampEntity implements IEntity {
     private String id;
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Profile> profiles;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Message> messages;
-    private boolean hasUnreadMessage;
 
 }

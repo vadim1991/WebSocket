@@ -1,6 +1,9 @@
 package com.social.net.controller;
 
+import com.social.net.entity.Friendship;
+import com.social.net.entity.dto.MarkReadRequest;
 import com.social.net.entity.dto.MessageDto;
+import com.social.net.service.facade.FriendshipFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageExceptionHandler;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -16,6 +19,8 @@ public class MessageController {
 
     @Autowired
     private SimpMessagingTemplate messagingTemplate;
+    @Autowired
+    private FriendshipFacade friendshipFacade;
 
     @RequestMapping(value = "/messages")
     public String messagePage() {
@@ -27,6 +32,19 @@ public class MessageController {
         System.out.println(messageDto);
         long profileId = 3;
         messagingTemplate.convertAndSendToUser(principal.getName(), "/topic/new", messageDto);
+    }
+
+    @MessageMapping("/friendship/message/read")
+    public void getMessage(Principal principal, MarkReadRequest readRequest) {
+        System.out.println(readRequest);
+        friendshipFacade.markMessagesRead(readRequest.getMessageModels());
+        Friendship friendship = friendshipFacade.getFriendshipById(readRequest.getFriendshipId());
+        friendship.getProfiles()
+                .stream()
+//                .filter(profile -> !principal.getName().equals(profile.getEmail()))
+                .forEach(profile -> {
+                    messagingTemplate.convertAndSendToUser(profile.getEmail(), "/friendships/message/mark/read", readRequest);
+                });
     }
 
     @MessageExceptionHandler

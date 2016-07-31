@@ -1,7 +1,6 @@
 package com.social.net.service.friendship;
 
 import com.social.net.entity.Friendship;
-import com.social.net.entity.Message;
 import com.social.net.entity.dto.FriendshipRequest;
 import com.social.net.repository.friendship.FriendshipRepository;
 import com.social.net.util.Util;
@@ -26,18 +25,6 @@ public class FriendshipServiceImpl implements FriendshipService {
     private FriendshipRepository friendshipRepository;
 
     @Override
-    public Friendship addMessageToFriendship(Message message, String friendshipId) {
-        Friendship friendship = friendshipRepository.findOne(friendshipId);
-        if (friendship != null) {
-            message.setId(Util.generateStringKey());
-            friendship.getMessages().add(message);
-            return save(friendship);
-        } else {
-            throw new IllegalArgumentException("Friendship doesn't exist");
-        }
-    }
-
-    @Override
     public List<Friendship> getFriendshipsSortByDate(FriendshipRequest request) {
         Sort sort = new Sort(Sort.Direction.DESC, "updated");
         int pageNumber = request.getOffset() / request.getCount();
@@ -57,5 +44,10 @@ public class FriendshipServiceImpl implements FriendshipService {
     @Override
     public Friendship findById(String id) {
         return friendshipRepository.findOne(id);
+    }
+
+    @Override
+    public boolean exist(String id) {
+        return friendshipRepository.exists(id);
     }
 }

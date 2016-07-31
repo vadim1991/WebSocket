@@ -3,10 +3,7 @@ package com.social.net.entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -18,10 +15,10 @@ public class Message implements IEntity {
     @Id
     private String id;
     private String content;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Profile owner;
-//    @ManyToOne
-//    private Friendship friendship;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Friendship friendship;
     private Date time;
     private boolean isRead;
 

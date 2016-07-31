@@ -1,6 +1,6 @@
 package com.social.net.entity.model;
 
-import lombok.Builder;
+import com.social.net.entity.Friendship;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,9 +10,10 @@ import java.util.Date;
 @NoArgsConstructor
 public class MessageModel implements Comparable<MessageModel> {
 
+    private String id;
     private String content;
     private ProfileModel owner;
-    private String friendshipId;
+    private FriendshipModel friendship;
     private Date created;
     private boolean isRead;
 
