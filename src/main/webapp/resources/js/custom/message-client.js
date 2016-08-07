@@ -8,9 +8,7 @@ var friendshipMap = {};
 var unreadMessagesFromMe = {};
 var unreadMessagesToMe = {};
 
-$(document).ready(
-    connect()
-);
+connect();
 
 function loadFriendships() {
     var request = new Object();
@@ -33,10 +31,32 @@ function handleNewMessage(messageJson) {
     var friendship = friendshipMap[message.friendship.id];
     friendship.find(".message").text(message.content);
     friendship.addClass("unread-message");
-    $.notify(message.content, "success");
+    processMessage(message);
     if (activeFriendshipId == message.friendship.id) {
         sendMarkReadMessagesRequest(activeFriendshipId);
     }
+}
+
+function processMessage(message) {
+    var messageOwner = message.owner.email;
+    if (username == messageOwner) {
+        $.notify("You've sent new message!)", "success");
+    } else {
+        var photo = '<img src="' + message.owner.photo + '" width="50" alt="" class="media-object">';
+        $.notify({
+            user: message.owner.firstName + " " + message.owner.lastName,
+            photo: photo,
+            message: message.content
+        }, {
+            style: 'incoming'
+        });
+        beep();
+    }
+}
+
+function beep() {
+    var snd = new Audio("resources/sound/beep.mp3");
+    snd.play();
 }
 
 function checkAndPutToUnread(message) {
@@ -196,3 +216,12 @@ function connect() {
         loadFriendships();
     });
 }
+
+$.notify.addStyle('incoming', {
+    html: '<div><div class="clearfix">' +
+    ' <div class="photo" data-notify-html="photo">' +
+    ' </div> ' +
+    '<div class="incoming-content">' +
+    ' <span class="user" data-notify-text="user"></span>' +
+    ' <div class="message" data-notify-text="message"></div> </div> </div></div>'
+});

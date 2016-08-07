@@ -16,7 +16,7 @@ MessageObject.prototype.build = function () {
     var isMessageFromMe = this.message.owner.email == this.username;
     if (isMessageFromMe) {
         stub.find(".media-left").remove();
-        stub.find(".media-object").attr("src", "resources/images/guy-5.jpg");
+        stub.find(".media-object").attr("src", this.message.owner.photo);
         stub.find("#name").text("Me");
 
     } else {
