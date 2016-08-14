@@ -1,8 +1,10 @@
 package com.social.net.controller;
 
 import com.social.net.entity.Friendship;
+import com.social.net.entity.Profile;
 import com.social.net.entity.dto.MarkReadRequest;
 import com.social.net.entity.dto.MessageDto;
+import com.social.net.entity.model.Typing;
 import com.social.net.service.facade.FriendshipFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageExceptionHandler;
@@ -36,14 +38,25 @@ public class MessageController {
 
     @MessageMapping("/friendship/message/read")
     public void getMessage(Principal principal, MarkReadRequest readRequest) {
-        System.out.println(readRequest);
         friendshipFacade.markMessagesRead(readRequest.getMessageModels());
         Friendship friendship = friendshipFacade.getFriendshipById(readRequest.getFriendshipId());
         friendship.getProfiles()
                 .stream()
-//                .filter(profile -> !principal.getName().equals(profile.getEmail()))
                 .forEach(profile -> {
                     messagingTemplate.convertAndSendToUser(profile.getEmail(), "/friendships/message/mark/read", readRequest);
+                });
+    }
+
+    @MessageMapping("/friendship/request/typing")
+    public void processTyping(Principal principal, Typing typing) {
+        Profile profileItem = friendshipFacade.getProfileByEmail(principal.getName());
+        typing.setProfile(profileItem.toModel());
+        Friendship friendship = friendshipFacade.getFriendshipById(typing.getFriendshipId());
+        friendship.getProfiles().stream()
+                .forEach(profile -> {
+                    if (!profile.getEmail().equals(principal.getName())) {
+                        messagingTemplate.convertAndSendToUser(profile.getEmail(), "/friendships/typing", typing);
+                    }
                 });
     }
 

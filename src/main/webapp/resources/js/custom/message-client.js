@@ -173,27 +173,79 @@ $(document).ready(function () {
         showMessagesForFriendship();
         $(this).parent().removeClass("unread-message");
         sendMarkReadMessagesRequest(friendShipId);
+        sendMessageEvent();
+        sendByEnter();
+        typing();
     });
-
+});
+function sendMessageEvent() {
     $("#send-button").click(function () {
         var parent = $(this).parent().parent();
         var messageInput = parent.find(".share-text");
         var messageContent = messageInput.val();
         var friendshipId = $(this).attr("data-id");
-        var messageItem = new Object();
-        messageItem.content = messageContent;
-        messageItem.friendshipId = friendshipId;
-        send("/app/friendship/message", messageItem);
-        messageInput.val("");
+        if (messageContent && $.trim(messageContent).length != 0) {
+            var messageItem = new Object();
+            messageItem.content = messageContent;
+            messageItem.friendshipId = friendshipId;
+            send("/app/friendship/message", messageItem);
+            messageInput.val("");
+        }
     });
-
+}
+function sendByEnter() {
     $('#message-input').bind('keypress', function (e) {
         var code = e.keyCode || e.which;
         if (code == 13) {
             $("#send-button").trigger("click");
         }
     });
-});
+}
+
+function typing() {
+    var typingTimer;                //timer identifier
+    var doneTypingInterval = 1000;  //time in ms, 5 second for example
+    var $input = $('#message-input');
+
+    $input.on('keyup', function () {
+        clearTimeout(typingTimer);
+        typingTimer = setTimeout(doneTyping, doneTypingInterval);
+        send("/app/friendship/request/typing", getTypingRequestItem(true))
+    });
+
+    $input.on('keydown', function () {
+        clearTimeout(typingTimer);
+    });
+
+    function doneTyping() {
+        send("/app/friendship/request/typing", getTypingRequestItem(false))
+    }
+}
+
+function getTypingRequestItem(isTyping) {
+    var typingItem = new Object();
+    typingItem.username = username;
+    typingItem.isTyping = isTyping;
+    typingItem.friendshipId = activeFriendshipId;
+    return typingItem;
+}
+
+function handleMessageTyping(typingItem) {
+    var typingResponse = JSON.parse(typingItem);
+    var friendship = friendshipMap[typingResponse.friendshipId];
+    console.log(typingResponse);
+    if (typingResponse.typing) {
+        console.log("Start");
+        friendship.find(".message").hide();
+        friendship.find(".typing-message")
+            .text(typingResponse.profile.firstName + " " + typingResponse.profile.lastName + " is typing... ");
+        friendship.find(".typing-message").show();
+    } else {
+        console.log("Stop");
+        friendship.find(".typing-message").hide();
+        friendship.find(".message").show();
+    }
+}
 
 function connect() {
     var socket = new SockJS('/ws');
@@ -212,6 +264,9 @@ function connect() {
         });
         stompClient.subscribe("/user/friendships/message/mark/read", function (markMessages) {
             handleMarkReadMessages(markMessages.body);
+        });
+        stompClient.subscribe("/user/friendships/typing", function (typing) {
+            handleMessageTyping(typing.body);
         });
         loadFriendships();
     });

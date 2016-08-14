@@ -123,6 +123,7 @@
                 <span class="date">Now</span>
                 <span class="user"></span>
                 <div class="message"></div>
+                <div class="typing-message"></div>
             </div>
         </div>
     </a>

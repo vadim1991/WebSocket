@@ -22,3 +22,8 @@
     float: right;
     font-size: 12px;
 }
+
+.typing-message {
+    font-style: italic;
+    display: none;
+}

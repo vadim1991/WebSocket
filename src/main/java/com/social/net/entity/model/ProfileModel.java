@@ -1,6 +1,5 @@
 package com.social.net.entity.model;
 
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

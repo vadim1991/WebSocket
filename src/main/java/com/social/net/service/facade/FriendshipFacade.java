@@ -46,6 +46,10 @@ public class FriendshipFacade {
         return friendshipModels;
     }
 
+    public Profile getProfileByEmail(String email) {
+        return profileService.findByEmail(email);
+    }
+
     public MessageModel addMessageToFriendship(String email, MessageDto messageDto) {
         Profile profile = profileService.findByEmail(email);
         Message message = MessageMapper.mapDtoToEntity(messageDto, profile);

@@ -1,6 +1,7 @@
 package com.social.net.entity;
 
-import lombok.Builder;
+import com.social.net.entity.model.ProfileModel;
+import com.social.net.service.mapper.ProfileMapper;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -28,4 +29,7 @@ public class Profile implements IEntity {
     @Column(name = "is_online")
     private boolean isOnline;
 
+    public ProfileModel toModel() {
+        return ProfileMapper.mapEntityToModel(this);
+    }
 }
